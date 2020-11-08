@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eihort | readme - .documentation</title>
+	<link rel="icon" type="image/png" href="images/tab-logo.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>		
+	<div class="wrapper">
+		<script type="text/javascript">
+			var success = false;
+			var img = new Image();
+			img.src = 'http://wiki.libsdl.org/wiki_static/SDL_logo20_sm.png'; //Check if logo is available
+			img.onload = function() {
+				success = true;
+			}
+			img.onerror = function() {
+				success = false;
+			}
+		</script>
+		<nav>
+			<ul id="mainmenu">
+				<li><a href="page-main-new.html">.main page</a></li>
+				<li><a href="page-install-linux.html">.get started</a></li>
+				<li><a href="#" class="active">.documentation</a></li>
+				<li><a href="page-about-licence.html">.about</a></li>
+			</ul>
+		</nav>
+		<nav>
+			<ul id="submenu">
+				<li><a href="page-doc-history.html">version history</a></li>
+				<li><a href="#" class="active">key layout</a></li>
+				<li><a href="page-doc-config.html">config file</a></li>
+				<li><a href="page-doc-blocktype.html">block settings</a></li>
+				<li><a href="page-doc-bugs.html">known bugs</a></li>
+			</ul>
+		</nav>
+		<p>
+			<div class="menulist">
+				<ul id="mlist">
+					<li><a href="#movement">Movement</a></li>
+					<li><a href="#setting">Setting</a></li>
+					<li><a href="#eihort">Eihort</a></li>
+					<li><a href="#spline">Spline Keys</a></li>
+					<li><a href="#togglebutton">Toggle Effects</a></li>
+				</ul>
+			</div>
+			<div class="configlayout">
+				<div class="note">the default key layout</div>
+				<div class="headline"><a name="movement"></a>Movement:</div>
+				<div class="sidenote">Find <a href="#" onclick="check404()">more valid keys here</a>. Usage without "SDLK_"</div>
+				<div class="keys">
+					<ul>
+						<li>W = Forwards</li>
+						<li>S = Backwards</li>
+						<li>A = Left</li>
+						<li>D = Right</li>
+						<li>SPACE = Up</li>
+						<li>X = Down</li>
+						<li>CTRL LEFT & CTRL RIGHT = Decrease movement speed</li>
+						<li>SHIFT LEFT & SHIFT RIGHT = Increase movement speed</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="setting"></a>Setting:</div>
+				<div class="keys">
+					<ul>
+						<li>[ & PAGEDOWN = Decrease view distance</li>
+						<li>] & PAGEUP = Increase view distance</li>
+						<li>T = Add time</li>
+						<li>Y = Remove time</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="eihort"></a>Eihort:</div>
+				<div class="keys">
+					<ul>
+						<li>R = Reload world</li>
+						<li>L = Change light mode</li>
+						<li>N = Change moon phase</li>
+						<li>O = Go to defined position</li>
+						<li>P = Go to players position</li>
+						<li>I = Go to world spawn</li>
+						<li>F1 = Toggle user interface</li>
+						<li>F2 = Take screenshot</li>
+						<li>F3 = Toggle on screenshot information</li>
+						<li>ESC = Free mouse</li>
+						<li>M = Toggle world monitoring</li>
+						<li>ALT LEFT = Toggle button effect</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="spline"></a>Spline keys:</div>
+				<div class="keys">
+					<ul>
+						<li>Q = Add spline point</li>
+						<li>0 = Delete all spline points</li>
+						<li>1 = Jump to first spline point</li>
+						<li>2 = Do spline (direction first to last)</li>
+						<li>3 = Jump to last spline point</li>
+						<li>4 = Do spline (direction last to first)</li>
+						<li>E = Delete last added spline point</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="togglebutton"></a>Alternate button effects:</div>
+				<div class="keys">
+					<ul>
+						<li>ALT LEFT + P = Move player to the current position</li>
+						<li>ALT LEFT + I = Move spawn to the current position</li>
+						<li>ALT LEFT + F2 = Take screenshot with GUI</li>
+					</ul>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function check404(){				
+					if(window.success){
+						window.location = 'http://wiki.libsdl.org/SDL_Keycode'; // goto online page
+					}else{
+						window.location = 'page-offline-keycode.html'; // goto offline page
+					}
+				}
+			</script>
+		</p>
+	</div>	
+</body>
+</html>

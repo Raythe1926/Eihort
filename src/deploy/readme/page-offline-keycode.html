@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eihort | readme - .offline</title>
+	<link rel="icon" type="image/png" href="images/tab-logo.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>		
+	<script type="text/javascript">
+			var success = false;
+			var img = new Image();
+			img.src = 'http://wiki.libsdl.org/wiki_static/SDL_logo20_sm.png'; //Check if logo is available
+			img.onload = function() {
+				success = true;
+			}
+			img.onerror = function() {
+				success = false;
+			}
+	</script>	
+	<div class="wrapper">
+		<nav>
+			<ul id="offlinemenu">
+				<li><a href="page-doc-layout.html">Back to readme</a></li>
+				<li><a onclick="check404()">Retry loading page</a></li>
+			</ul>
+		</nav>
+		<script type="text/javascript">
+		function check404(){				
+				if(window.success){
+					window.location = 'http://wiki.libsdl.org/SDL_Keycode'; // goto page
+				}else{
+					alert('The page for the SDL Keycodes is offline or can\'t be loaded right know.\nThis is an offline copy of the page which does show the content of the target page.'); // page not oline - display error					
+				}
+			}
+			// setTimeout('check404()',1000); //if page is loaded check goto page after 1'000ms
+		</script>
+		<p>
+			<div class="offlinenote">This is an offline page with a shortened key-list of the original page containg the common keys.<br>Click the <i>Retry</i>-button to retry loading the original page.</div>
+		</p>
+		<p>
+			<table>
+				<tbody>
+					<tr>
+						<td class="headline">Key Name</td>
+						<td class="headline">Keycode Value</td>
+					</tr>
+					<tr>  
+						<td colspan="2"><strong>Number Keys</strong></td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>0</strong>&quot;</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>1</strong>&quot;</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>2</strong>&quot;</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>3</strong>&quot;</td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>4</strong>&quot;</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>5</strong>&quot;</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>6</strong>&quot</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>7</strong>&quot</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>8</strong>&quot;</td>
+						<td>8</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>9</strong>&quot;</td>
+						<td>9</td>
+					</tr>
+					<tr>  
+						<td colspan="2"><strong>Alphabetic Character Keys</strong></td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>A</strong>&quot;</td>
+						<td>a</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>B</strong>&quot;</td>
+						<td>b</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>C</strong>&quot;</td>
+						<td>c</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>D</strong>&quot;</td>
+						<td>d</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>E</strong>&quot;</td>
+						<td>e</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F</strong>&quot;</td>
+						<td>f</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>G</strong>&quot;</td>
+						<td>g</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>H</strong>&quot;</td>
+						<td>h</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>I</strong>&quot;</td>
+						<td>i</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>J</strong>&quot;</td>
+						<td>j</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>K</strong>&quot;</td>
+						<td>k</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>L</strong>&quot;</td>
+						<td>l</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>M</strong>&quot;</td>
+						<td>m</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>N</strong>&quot;</td>
+						<td>n</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>O</strong>&quot;</td>
+						<td>o</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>P</strong>&quot;</td>
+						<td>p</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Q</strong>&quot;</td>
+						<td>q</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>R</strong>&quot;</td>
+						<td>r</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>S</strong>&quot;</td>
+						<td>s</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>T</strong>&quot;</td>
+						<td>t</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>U</strong>&quot;</td>
+						<td>u</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>V</strong>&quot;</td>
+						<td>v</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>W</strong>&quot;</td>
+						<td>w</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>X</strong>&quot;</td>
+						<td>x</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Y</strong>&quot;</td>
+						<td>y</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Z</strong>&quot;</td>
+						<td>z</td>
+					</tr>
+					<tr>  
+						<td colspan="2"><strong>Special Keys</strong></td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Escape</strong>&quot; (the Esc key)</td>
+						<td>ESCAPE</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Space</strong>&quot; (the Space Bar key(s))</td>
+						<td>SPACE</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Left Ctrl</strong>&quot;</td>
+						<td>LCTRL</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Right Ctrl</strong>&quot;</td>
+						<td>RCTRL</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Left Shift</strong>&quot;</td>
+						<td>LSHIFT</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Right Shift</strong>&quot;</td>
+						<td>RSHIFT</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>[</strong>&quot;</td>
+						<td>LEFTBRACKET</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>]</strong>&quot;</td>
+						<td>RIGHTBRACKET</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>PageUp</strong>&quot;</td>
+						<td>PAGEUP</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>PageDown</strong>&quot;</td>
+						<td>PAGEDOWN</td>
+					</tr>
+					<tr>  
+						<td colspan="2"><strong>Function Keys</strong></td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F1</strong>&quot;</td>
+						<td>F1</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F2</strong>&quot;</td>
+						<td>F2</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F3</strong>&quot;</td>
+						<td>F3</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F4</strong>&quot;</td>
+						<td>F4</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F5</strong>&quot;</td>
+						<td>F5</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F6</strong>&quot;</td>
+						<td>F6</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F7</strong>&quot;</td>
+						<td>F7</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F8</strong>&quot;</td>
+						<td>F8</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F9</strong>&quot;</td>
+						<td>F9</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F10</strong>&quot;</td>
+						<td>F10</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F11</strong>&quot;</td>
+						<td>F11</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>F12</strong>&quot;</td>
+						<td>F12</td>
+					</tr>
+					<tr>  
+						<td colspan="2"><strong>Number Keypad Keys</strong></td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 0</strong>&quot; (the 0 key (numeric keypad))</td>
+						<td>KP_0</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 1</strong>&quot; (the 1 key (numeric keypad))</td>
+						<td>KP_1</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 2</strong>&quot; (the 2 key (numeric keypad))</td>
+						<td>KP_2</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 3</strong>&quot; (the 3 key (numeric keypad))</td>
+						<td>KP_3</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 4</strong>&quot; (the 4 key (numeric keypad))</td>
+						<td>KP_4</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 5</strong>&quot; (the 5 key (numeric keypad))</td>
+						<td>KP_5</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 6</strong>&quot; (the 6 key (numeric keypad))</td>
+						<td>KP_6</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 7</strong>&quot; (the 7 key (numeric keypad))</td>
+						<td>KP_7</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 8</strong>&quot; (the 8 key (numeric keypad))</td>
+						<td>KP_8</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Keypad 9</strong>&quot; (the 9 key (numeric keypad))</td>
+						<td>KP_9</td>
+					</tr>
+					<tr>  
+						<td colspan="2"><strong>Other Keys</strong></td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Up</strong>&quot; (the Up arrow key (navigation keypad))</td>
+						<td>UP</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Down</strong>&quot; (the Down arrow key (navigation keypad))</td>
+						<td>DOWN</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Left</strong>&quot; (the Left arrow key (navigation keypad))</td>
+						<td>LEFT</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Right</strong>&quot; (the Right arrow key (navigation keypad))</td>
+						<td>RIGHT</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Left Alt</strong>&quot; (alt, option)</strong>&quot;</td>
+						<td>LALT</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Right Alt</strong>&quot; (alt gr, option)</td>
+						<td>RALT</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Insert</strong>&quot; (insert on PC, help on some Mac keyboards)</td>
+						<td>INSERT</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Paste</strong>&quot;</td>
+						<td>PASTE</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Delete</strong>&quot;</td>
+						<td>DELETE</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>End</strong>&quot;</td>
+						<td>END</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>&#39;</strong>&quot;</td>
+						<td>QUOTE</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>.</strong>&quot;</td>
+						<td>PERIOD</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>,</strong>&quot;</td>
+						<td>COMMA</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>-</strong>&quot;</td>
+						<td>MINUS</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>=</strong>&quot;</td>
+						<td>EQUALS</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>/</strong>&quot;</td>
+						<td>SLASH</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Tab</strong>&quot; (the Tab key)</td>
+						<td>TAB</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Return</strong>&quot; (the Enter key (main keyboard))</td>
+						<td>RETURN</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Return</strong>&quot;</td>
+						<td>RETURN2</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Backspace</strong>&quot;</td>
+						<td>BACKSPACE</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>CapsLock</strong>&quot;</td>
+						<td>CAPSLOCK</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Pause</strong>&quot; (the Pause / Break key)</strong>&quot;</td>
+						<td>PAUSE</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Cancel</strong>&quot;</td>
+						<td>CANCEL</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Clear</strong>&quot;</td>
+						<td>CLEAR</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Copy</strong>&quot;</td>
+						<td>COPY</td>
+					</tr>
+					<tr>
+						<td>&quot;<strong>Cut</strong>&quot;</td>
+						<td>CUT</td>
+					</tr>
+				</tbody>
+			</table>
+		</p>
+	</div>	
+</body>
+</html>

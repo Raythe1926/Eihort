@@ -1,0 +1,10 @@
+Package: @package@
+Version: @version@-1
+Section: games
+Priority: optional
+Architecture: @arch@
+Depends: libc6, libglew2.0, liblua5.2-0, libpng16-16, libsdl2-2.0-0, libsdl2-image-2.0-0, libstdc++6, libz1
+Maintainer: no-one <dev@null.com>
+Description: An OpenGL Minecraft map renderer
+ Eihort is an OpenGL world renderer whose primary feature is a really long view distance. With a powerful GPU, you can see well beyond 1 kb (kiloblock) with a good framerate, even in a world with complex geometry.
+Installed-Size: 1500

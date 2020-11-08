@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eihort | readme - .get started</title>
+	<link rel="icon" type="image/png" href="images/tab-logo.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>		
+	<div class="wrapper">
+		<nav>
+			<ul id="mainmenu">
+				<li><a href="page-main-new.html">.main page</a></li>
+				<li><a href="#" class="active">.get started</a></li>
+				<li><a href="page-doc-history.html">.documentation</a></li>
+				<li><a href="page-about-licence.html">.about</a></li>
+			</ul>
+		</nav>
+		<nav>
+			<ul id="submenu">
+				<li><a href="page-install-linux.html" >linux</a></li>
+				<li><a href="page-install-mac.html">mac</a></li>
+				<li><a href="page-install-windows.html">windows</a></li>
+				<li><a href="#" class="active">command line</a></li>
+			</ul>
+		</nav>
+		<p>
+			<div class="configlayout">
+				<div class="note">command line parameters to startup eihort</div>
+				<p><center>All argument values have to be provided in their Minecraft format. Use a dot "." for decimal numbers (example 4.1).<br>eihort will only process the provided arguments and will fill the missing arguments with the player's data. If eihort can't find any arguments it will show the world selection screen.</center></p>
+				<div class="headline">world path</div>
+				<div class="keys">
+					<ul>
+						<li>To set the displayed world use <code>-w</code> or <code>-world</code> followed by the Minecraft world's path</li>
+						<li>If there is no <code>-w</code> or <code>-world</code> argument eihort will use the first passed argument as world path. If no regions can be found eihort will display an error message.</li>
+					</ul>
+				</div>
+				<div class="headline">X, Y & Z coordinates</div>
+				<div class="keys">
+					<ul>
+						<li>To set the player's X position use <code>-x</code> or <code>-eyeX</code> followed by the target value</li>
+						<li>To set the player's Y position use <code>-y</code> or <code>-eyeY</code> followed by the target value</li>
+						<li>To set the player's Z position use <code>-z</code> or <code>-eyeZ</code> followed by the target value</li>
+					</ul>
+				</div>
+				<div class="headline">view direction</div>
+				<div class="keys">
+					<ul>
+						<li>To set the player's vertical view direction <code>-p</code> or <code>-pitch</code> followed by the target value</li>
+						<li>To set the player's horizontal view direction <code>-a</code>, <code>-azi</code> or <code>-azimuth</code> followed by the target value</li>
+					</ul>
+				</div>
+				<div class="headline">dimension</div>
+				<div class="keys">
+					<ul>
+						<li>To set the displayed dimension use <code>-d</code>, <code>-dim</code> or <code>-dimension</code> followed by</li>
+						<ul>
+							<li>- <code>overworld</code>, <code>o</code> or <code>0</code> for the Overworld dimension</li>
+							<li>- <code>nether</code>, <code>n</code> or <code>-1</code> for the Nether dimension</li>
+							<li>- <code>end</code>, <code>e</code> or <code>1</code> for The End dimension</li>
+						</ul>
+					</ul>
+				</div>
+				<div class="headline">world time</div>
+				<div class="keys">
+					<ul>
+						<li>To set the world time use <code>-t</code> or <code>-time</code> followed by the target value</li>
+					</ul>
+				</div>
+				<div class="headline">view distance</div>
+				<div class="keys">
+					<ul>
+						<li>To set the view distance use <code>-v</code>, <code>-vd</code> or <code>-viewDistance</code> followed by the target value</li>
+						<li>Even the view distance can be set to values outside the set range, values smaller than 0 will be ignored. Using the keyboard to change the view distance will revert it into the set value range (default 50 to 10'000 blocks)</li>
+					</ul>
+				</div>
+				<div class="headline">VRAM</div>
+				<div class="keys">
+					<ul>
+						<li>To set the Video RAM/GPU memory size use <code>-vram</code> followed by the target value in megabyte</li>
+						<li>The VRAM size has to be bigger than 0.</li>
+					</ul>
+				</div>
+				<p> <b>Example:</b><br>
+				<code>"/path/to/eihort" -world "/path/to/the/minecraft/world" -x 0.5 -y 1000 -z 0.5 -pitch 90 -azimuth 180 -dimension overworld -time 6000 -viewDistance 15000 -vram 2048</code><br>
+				This will start eihort using world found in "/path/to/the/minecraft/world". The displayed dimension will be the overworld and it will be viewed from 0.5/0.5, 1000 blocks above bedrock, looking north and straight down. The time is high noon, the view distance is 15'000 blocks and eihort will use 2048&nbsp;MB of your videocard's memory.</p>
+			</div>
+		</p>
+	</div>	
+</body>
+</html>

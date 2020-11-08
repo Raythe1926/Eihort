@@ -1,0 +1,584 @@
+
+
+ -----------------------------------------------------------------------------
+                            Eihort Core (main.cpp)
+
+eihort.errorDialog( title, message )
+	Displays a modal error dialog with only an "Ok" button.
+	
+response = eihort.errorDialogYesNo( title, message )
+	Displays a modal error dialog with "Yes" and "No" buttons.
+	response is true if the user selects yes.
+								  
+eventtype, ... = eihort.pollEvent()
+	Polls for window/input events.
+	Returns nil for eventtype if there are none.
+	Possible events are:
+		expose
+			The window was just exposed after being iconified
+		resize <new width> <new height>
+			The window was resized
+		active <mouse/input> <true/false>
+			The mouse just entered/exited the window, or we just
+			gained/lost focus
+		quit
+			The window was closed via the x in the corner
+		keydown <key>
+			The key <key> was pressed
+		keyup <key>
+			The key <key> was released
+		mousemove <x> <y>
+			The mouse has moved to coordinates (x, y)
+		mousedown <button> <x> <y>
+			The given mouse button was clicked
+		mouseup <button> <x> <y>
+
+eihort.yield()
+	Gives up the rest of the timeslice to allow other threads to run.
+
+time = eihort.getTime()
+	Get the time in seconds from an arbitrary starting point.
+	
+n = eihort.getProcessorCount()
+	Get the number of logical cores available on this system.
+	
+eihort.initWorkers( n )
+	Sets the number of worker threads to n.
+	Currently, the worker pool cannot contract.
+	
+success, message = eihort.initializeVideo( w, h, fullscreen, msaa )
+	Creates a window of the given size and properties and initializes OpenGL
+	success is true on success.
+	On failure, success is false and message contains the error message.
+	
+w, h = eihort.getWindowDims()
+	Get the size of the window.
+	
+eihort.setWindowCaption( caption )
+	Set the window caption.
+	
+mem = eihort.getVideoMem()
+	Estimate the amount of video memory available, in bytes.
+	Returns nothing if no good estimate could be made (e.g. for Intel GPUs).
+	
+redraw = eihort.shouldRedraw( redraw )
+	Sets Eihort's internal redraw flag to redraw, and returns the old value.
+
+eihort.beginRender( x, y, w, h )
+	Sets up the GL state to render a frame in the given viewport.
+	
+eihort.setClearColor( r, g, b )
+	Set the clear color.
+
+eihort.clearScreen()
+	Clears the screen to the color set by setClearColor.
+
+success, message = eihort.endRender()
+	Displays the rendered image to the user.
+	success is false if any GL errors occurred during rendering, with
+	message containing the corresponding error message.
+
+eihort.showCursor( show )
+	Shows/hides the mouse cursor.
+	
+x, y = eihort.getMousePos()
+	Get the mouse position in the window.
+	
+eihort.warpMouse( x, y )
+	Move the mouse to another location within the window.
+
+fx, fy, fz, ux, uy, uz, rx, ry, rz = eihort.fwdUpRightFromAzPitch( azimuth, pitch )
+	Calculates forward (f), up (u), and right (r) vectors for a rotation
+	matrix corresponding to the given azimuth and pitch.
+
+c = eihort.intAnd( a, b )
+	c = a & b, a and b should be integers, and <= 2^32.
+
+c = eihort.intOr( a, b )
+	c = a | b, a and b should be integers, and <= 2^32.
+	
+lang = eihort.getSystemLanguage()
+	Returns the system locale in <language>_<country> format.
+
+success = eihort.createDirectory( path )
+	Attempts to create the given directory; returns true on success.
+
+index = eihort.indexZip( zipfile )
+	Creates an index of all the files contained in a zip file
+	The index is a table with keys equal to the paths, and string values of
+	the form "start:size[>uncsize]", where start is the starting index,
+	size is the size of the file, and uncsize, if existing, is the
+	uncompressed size of a gzipped file.
+
+data = eihort.readFileZipDirect( zipfile, start, size[, uncsize] )
+	Reads a file out of a zip file, starting at start and continuing for
+	size bytes. If uncsize is given, the file is decompressed; uncsize must
+	match the uncompressed size of the file (given by eihort.indexZip).
+
+eihort.setFontLoader( loader )
+	Sets the font texture loader.
+	Loader will be called as:
+		tex, glyph_sizes = loader( page )
+	page is the requested unicode page
+	tex is the loaded font page, uploaded to GL with img:uploadToGl()
+	glyph_sizes is the font page's section of glyph_sizes.bin
+	Note: Unlike the other functions in this section, this function is
+	      implemented in uidrawcontext.cpp/h
+
+ -----------------------------------------------------------------------------
+                   Image Manipulation (luaimage.cpp/h)
+
+img = eihort.newImage( width, height, r, g, b, a )
+	Create a new image with the given size and color. The return value is the image which is stored in the RAM.
+
+img = eihort.loadImage( filename )
+	Load an image from a file.
+
+img = eihort.loadImageZip( zipfile, filename )
+	Load an image from a zip file.
+
+img = eihort.loadImageZipDirect( zipfile, start, size[, uncompSize] )
+	Load an image from a zip file, specifying the position to start
+	reading in the file and size in the file. If uncompSize is not
+	given, the image file is assumed to be uncompressed. If given,
+	the file should uncompress to that size.
+	This function should be preferred over loadImageZip, as it
+	avoids a costly lookup into the zip directory.
+
+img = eihort.screengrab()
+	Create an image from the current GL frontbuffer.
+
+eihort.unloadTexture( tex )
+	Deletes a GL texture created with img:uploadToGL().
+
+Available functions for the returned image objects:
+
+img2 = img:copy()
+	Creates a copy of an image.
+
+img:destroy()
+	Destroys the image and frees all memory used.
+	This is also called when Lua garbage collects the img object.
+
+img:grayToAlpha( grayImg )
+	Merges the gray channel of grayImg into the alpha channel of img.
+	Specifically, output is:
+		out.rgb <- in.rgb * (1 - gray.a)
+		out.a <- mean(gray.rgb) * gray.a
+	where out is a pixel in img after this operation, in is a pixel in
+	img before, and gray is the corresponding pixel in grayImg.
+
+h = img.height
+	The height of the image.
+
+img:put( img2, x, y )
+	Copy img2 into img with the upper-left coordinates at (x, y).
+
+img2 = img:sub( x, y, w, h )
+	Returns the sub-image of img with upper-left corner at (x, y) with
+	width w and height h.
+
+tex = img:uploadToGL( [tex,] ... )
+	Uploads the image to GL and returns a texture handle of the image which is stored in the VRAM.
+	If tex is given, the texture handle is re-used (i.e. all surfaces using
+	this texture will now look like the new image uploaded here)
+	Extra arguments control texture filtering, and are:
+		"aniso_<n>":   Anisotropic filtering with <n> samples
+		"clamp":       GL_TEXTURE_WRAP_*     is GL_CLAMP_TO_EDGE
+		"repeat":      GL_TEXTURE_WRAP_*     is GL_REPEAT
+		"mag_nearest": GL_TEXTURE_MAG_FILTER is GL_NEAREST
+		"mag_linear":  GL_TEXTURE_MAG_FILTER is GL_LINEAR
+		"min_nearest": GL_TEXTURE_MIN_FILTER is GL_NEAREST<mip_filter>
+		"min_linear":  GL_TEXTURE_MIN_FILTER is GL_LINEAR<mip_filter>
+		"mip_nearest": <mip_filter>          is _MIPMAP_NEAREST
+		"mip_linear":  <mip_filter>          is _MIPMAP_LINEAR
+		"mip_none":    <mip_filter>          is nothing
+		"mipgen_box":  Use a simple box filter (2x2 average)
+		               to generate mipmaps
+		"mipgen_alphawt_box": Use an alpha channel-weighted box
+		                      filter to generate mipmaps.
+
+w = img.width
+	The width of the image.
+
+success, reason = img:writePNG( filename )
+	Write the image to a PNG file.
+	Returns true on success.
+	Returns false, reason on failure.
+	
+
+ -----------------------------------------------------------------------------
+                             NBT (luanbt.cpp/h)
+
+Valid tag types are: "byte", "bytearray", "compound", "double", "float",
+                     "int", "long", "list", "string", and "short"
+
+nbt, rootname = eihort.loadNBT( filename )
+	Loads an NBT structure from a file.
+
+nbt = eihort.newNBTCompound()
+	Creates a new, empty NBT compound object.
+
+list = eihort.newNBTList( tagtype )
+	Creates a new, empty list.
+	Lists can be manipulated like normal Lua tables:
+		Get list length: #list
+		Get a value: list[i];       1 <= i <= #list
+		Set a value: list[i] = foo; 1 <= i <= #list+1
+		Delete an element: list[i] = nil;
+			Note that unlike the equivalent syntax for Lua tables,
+			deletion will shift down elements at higher indices.
+
+nbt:destroy()
+	Deletes the compound and all contents.
+	Note that this is NOT called on garbage collection since the
+	compound may be included in other compounds. It must be called
+	manually when the compound and all nested data is no longer
+	used.
+
+(iterator) = nbt:iterate()
+	Returns functions compatible with the general for loop in
+	Lua to iterate over the names and values in the compound.
+	Use as:
+		for name, value, tagtype in nbt:iterate() do
+			...
+		end
+
+value, tagtype = nbt:get( name )
+	Get the named value from a compound.
+	Numeric values are returned as Lua numbers.
+	Byte arrays and strings are returned as Lua strings.
+	Lists and Compounds are returned as the appropriate object.
+
+readable = nbt:getReadable()
+	Get a human-readable representation of the compound.
+
+nbt2 = nbt:newCompount( name )
+	Creates a new named compound and returns it.
+
+list = nbt:newList( name, tagtype )
+	Creates a new named list of the given type and returns it.
+
+nbt:set( name, value, type )
+	Sets the named value in a compound.
+
+nbt:write( filename, rootname )
+	Writes a compound to a nbt file.
+
+
+ -----------------------------------------------------------------------------
+                           UI Context (luaui.cpp/h)
+
+context = eihort.newUIContext()
+	Create a new UI context.
+	
+width, height = context:textSize( text, width )
+	Calculates the size of the text on screen, in normalized units.
+
+context:destroy()
+	Destroys the context.
+	
+
+ -----------------------------------------------------------------------------
+                         UI Rectangles (luaui.cpp/h)
+
+rect = eihort.newUIRect( x, y, w, h )
+	Create a new rectangle.
+
+rect:draw( context )
+	Draw the rectangle.
+
+rect:drawTextIn( context, text, v, h, align, vborder, hborder )
+	Draw text inside the rectangle.
+	v and h are the vertical and horizontal sizes of the text
+	align is the sum of vertical and horizontal alignments:
+		eihort.TextAlignLeft:    Left alignment
+		eihort.TextAlignRight:   Right alignment
+		eihort.TextAlignCenter:  Horzontal centering
+		eihort.TextAlignTop:     Top alignment
+		eihort.TextAlignBottom:  Bottom alignment
+		eihort.TextAlignVCenter: Vertical centering
+	vborder and hborder are extra space given around the borders
+	of the rectangle.
+
+inside = rect:contains( x, y )
+	Returns true if (x,y) is inside this rectangle.
+
+x, y, w, h = rect:getRect()
+	Get the position and size of the rectangle.
+
+rect:setRect( x, y, w, h )
+	Set the position and size of the rectangle.
+
+rect:setBkg( show[, r1, g1, b1[, r2, g2, b2[, r3, g3, b3, r4, g4, b4]]] )
+	Sets whether to show the background, and the colours of the vertices.
+	If show is false, no other arguments expected.
+	Otherwise, if only rgb1 are given, all vertices take that colour.
+	If rgb1 and rgb2 are given, the colours alternate around the rectangle.
+	If all four colours are given, they specify the colours of the corners.
+
+rect:setBorder( show[, r1, g1, b1[, r2, g2, b2[, r3, g3, b3, r4, g4, b4]]] )
+	Controls the border colours of the rectangle.
+	Same arguments as setBkg.
+
+
+ -----------------------------------------------------------------------------
+                    Block Description (mcblockdesc.cpp/h)
+							
+blocks = eihort.newBlockDesc()
+	Create a new block description object.
+	
+blocks:setGeometry( id, geom )
+	Set the geometry generator for the given block ID.
+	
+blocks:setSolidity( id, solidity )
+	Set the solidity of the given block ID.
+
+blocks:setHighlight( id, highlight )
+	Set whether or not to highlight the block ID.
+
+blocks:noBlockLighting( lighting )
+	Sets whether or not the world should be generated with block lighting.
+
+blocks:setDefAirSkylight( light, override )
+	Sets the default sky light level in air blocks.
+	If override is true, then all air blocks will have this sky light level.
+
+locked = blocks:isLocked()
+	Returns if this block description object has been locked by a worker
+	thread, and therefore cannot be modified until it finishes.
+	
+blocks:setBiomeRoot( rootpath )
+	Set the root path to look for extracted biome information in.
+	
+blocks:setBiomeChannel( channel, enabled, colormap )
+	Enables/disables a biome channel.
+	If enabled is true, then colormap should be an image with the color
+	transformation used by the channel.
+	If enabled is false, then 3 numbers are expected as parameters after
+	enabled, representing an RGB triplet which will be used everywhere
+	the biome channel is requested.
+	
+blocks:setBiomeDefaultPos( x, y )
+	Set the default biome coordinates.
+	
+blocks:destroy()
+	Destroy the block description.
+	Also destroys all geometry generators contained within.
+	
+
+ -----------------------------------------------------------------------------
+                     Geometry Generation (geombase.cpp/h)
+
+geom = eihort.geom.dataAdapter( mask, ... )
+	Creates a geometry selector based on the data value of a block.
+	The data value is masked by mask, and the geoms in ... are expected
+	in order of increasing data value, with 2^n geoms expected where n is
+	the number of bits set in mask.
+
+geom = eihort.geom.rotatingAdapter( geom1, geom2 )
+	Creates a data-based geometry selector that places geom1 on all faces
+	except side faces in the order that Pumpkins expect.
+	
+geom = eihort.geom.faceBitAdapter( geom1, geom2 )
+	Creates a data-based geometry selector that places geom2 on faces,
+	as expected by vines, and geom1 on all others. geom1 can be false
+	to have no geometry generated there.
+
+geom = eihort.geom.facingAdapter( geom1, geom2 )
+	Creates a data-based geometry selector that places geom1 on all faces
+	except side faces in the order that Pumpkins expect.
+
+geom = eihort.geom.topDifferentAdapter( geom1, geom2, top )
+	Creates a block ID-based geometry selector which uses geom2 when the
+	block above a given block does not have ID top, and geom1 everywhere
+	else.
+
+geom = eihort.geom.opaqueBlock( tex... )
+	Creates a simple opaque block with the textures determined by tex...
+	The tex... parameter is described in blockids.lua.
+	
+geom = eihort.geom.brightOpaqueBlock( tex... )
+	Creates an opaque block which is not affected by lighting.
+	
+geom = eihort.geom.transparentBlock( tex... )
+	Creates a transparent block.
+	
+geom = eihort.geom.squashedBlock( top, bottom, tex... )
+	Creates a "squashed" block which exists from the bottom'th pixel in the
+	block to the 15-top'th pixel.
+
+geom = eihort.geom.compactedBlock( X1, X2, Y1, Y2, Z1, Z2, tex... )
+	Creates a block which is squashed in multiple dimensions.
+	
+geom = eihort.geom.multiBlockInBlock( offsets, tex... )
+	Creates a "block" which consists of multiple other blocks inside of it.
+	These blocks are described by the table offsets, which should have 6*n
+	elements in it, describing the offsets (as in compactedBlock) for the
+	sub-blocks.
+	
+geom = eihort.geom.multiCompactedBlock( offsets, tex... )
+	Creates a "block" which consists of multiple other blocks, but these
+	blocks connect with each other along each dimension (think fences).
+	
+geom = eihort.geom.biomeOpaqueBlock( channel, tex... )
+	Creates an opaque block which colors the block based on a biome channel.
+	
+geom = eihort.geom.biomeAlphaOpaqueBlock( channel, tex... )
+	Creates an opaque block which colors the portions of the textures with
+	alpha based on a biome channel.
+
+geom = eihort.geom.portal( tex )
+	Creates a portal block with the given texture.
+	
+geom = eihort.geom.cactus( X1, X2, Y1, Y2, tex... )
+	Creates a cactus block, i.e. one with the faces offset slightly inward.
+	
+geom = eihort.geom.biomeCactus( channel, X1, X2, Y1, Y2, tex... )
+	Creates a cactus block which is colored by the given biome channel.
+	
+geom = eihort.geom.rail( texStraight, texTurn )
+	Creates a rail block with the straight and turn textures.
+	
+geom = eihort.geom.door( tex )
+	Creates a door block with the given door texture.
+	
+geom = eihort.geom.stairs( tex... )
+	Creates a stair block.
+
+geom = eihort.geom.torch( tex )
+	Creates a torch block.
+	
+geom = eihort.geom.flower( tex )
+	Creates a flower block, i.e. one with geometry in an X pattern.
+	
+geom = eihort.geom.biomeFlower( channel, tex )
+	Creates a flower block which is colored by a biome channel.
+	
+geom:setTexScale( uscale, vscale )
+	Changes the texture scaling. The scales should be integers to avoids
+	odd problems.
+	
+geom:renderGroupAdd( n )
+	Adjusts the render group of the geometry by n (delaying its rendering
+	compared to other geometry). n must be nonnegative.
+
+geom:destroy()
+	Destroys the geometry.
+
+ -----------------------------------------------------------------------------
+                      World Loading (mcregionmap.cpp/h)
+
+regions = eihort.loadWorld( rootpath, anvil )
+	Creates a region-loading object, pointing at the given root path.
+	Anvil-formatted worlds should have the anvil flag set to true.
+	
+n = regions:getRegionCount()
+	Get the number of regions found in the loaded world.
+	
+rootpath = regions:getRootPath()
+	Get the root path which the region-loading object was created with.
+	
+regions:changeRootPath( rootpath, anvil )
+	Changes the root path of the region-loading object.
+	All currently-loaded data about the regions will be forgotten.
+	
+regions:setMonitorState( on )
+	If on is true, Eihort will inspect the region files for changes
+	whenever the world's files change, the view created through this
+	object will reload the affected regions.
+	
+view = regions:createView( blocks, leafshift )
+	Creates a window into the world, using the geometry generators
+	contained in the given block description object.
+	The world's quadtree leaf size will be set to (1<<leafshift)-2.
+
+regions:destroy()
+	Delete the regions object.
+	Don't delete a regions object for an active view.
+
+
+ -----------------------------------------------------------------------------
+                      World Rendering (worldqtree.cpp/h)
+
+view:setPosition( x, y, z, fx, fy, fz, ux, uy, uz )
+	Set the camera position at (x, y, z), with forward vector (fx, fy, fz)
+	and up vector (ux, uy, uz).
+	NOTE: These are Minecraft coordinates
+	
+view:setViewDistance( distance )
+	Set the view distance.
+	
+view:setCameraParams( yfov, aspect, near, far )
+	Set up the camera parameters: the Y FOV, screen aspect ratio, and
+	near/far plane distances.
+	
+view:setFog( start, end, r, g, b )
+	Fog starts appearing at the start distance, and is completely
+	(r, g, b) by end.
+	
+lm = view:getLightModel( face )
+	Gets the lighting model applied to the given face.
+	
+lm:setDark( r, g, b )
+	Set the lighting when there is no light affecting this face.
+	
+lm:setSky( r, g, b )
+	Set the lighting when the sun is fully affecting this face.
+
+lm:setBlock( r, g, b )
+	Set the lighting when block lighting is fully affecting this face.
+	
+loading = view:isLoading()
+	Returns whether any meshes are being loaded by the view.
+	
+view:pauseLoading( pause )
+	Pauses/unpauses loading of new meshes. Currently-loading meshes are
+	unaffected.
+	
+view:reloadAll()
+	Reload all meshes.
+	
+view:reloadRegion( x1, x2, y1, y2 )
+	Reload a specific region of the world.
+	
+view:setGpuAllowance( allowance )
+	Set the maximum amount of space that the view will take on the GPU.
+	
+allowance = view:getGpuAllowanceLeft()
+	Returns the amount of unused space on the GPU.
+	
+tri, vtx, idx, tex = view:getLastFrameStats()
+	Returns the number of triangles rendered last frame, and the total amount of
+	vertex, index, and texture memory taken by visible geometry.
+
+view:render( carat )
+	Draw the world.
+	If carat is true, loading carats will be drawn as well.
+							   
+ -----------------------------------------------------------------------------
+                               Sky (sky.cpp/h)
+
+sky = eihort.newSky()
+	Creates and returns a new sky object.
+
+daylight = sky:setTime( time )
+	Set the time. 0 is noon, 1 and -1 are midnight.
+	Returns the amount of daylight left.
+
+sky:setColors( hr, hg, hb, tr, tg, tb )
+	Sets the colors of the horizon and of the "top" of the sky, respectively.
+
+sky:setSunMoon( texsun, texmoon )
+	Sets the texture IDs of the sun and of the moon.
+	These should be obtained from img:uploadToGL().
+
+r, g, b = sky:getHorizFogColor()
+	Get the best color to use for the fog.
+
+sky:render( view )
+	Renders the sky based on the current position in view.
+
+sky:destroy()
+	Destroys the sky object (also deletes associated textures).
+

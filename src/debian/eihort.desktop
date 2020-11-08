@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Eihort
+Comment=A Minecraft map renderer view really long viewing distance
+TryExec=eihort
+Exec=eihort %f
+Icon=/usr/share/app-install/icons/eihort.svg
+Categories=Game
+X-AppInstall-Package=eihort

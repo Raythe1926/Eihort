@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eihort | readme - .documentation</title>
+	<link rel="icon" type="image/png" href="images/tab-logo.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>		
+	<div class="wrapper">
+		<script type="text/javascript">
+			var success = false;
+			var img = new Image();
+			img.src = 'http://www.cplusplus.com/favicon.ico'; //Check if logo is available
+			img.onload = function() {
+				success = true;
+			}
+			img.onerror = function() {
+				success = false;
+			}
+		</script>
+		<nav>
+			<ul id="mainmenu">
+				<li><a href="page-main-new.html">.main page</a></li>
+				<li><a href="page-install-linux.html">.get started</a></li>
+				<li><a href="#" class="active">.documentation</a></li>
+				<li><a href="page-about-licence.html">.about</a></li>
+			</ul>
+		</nav>
+		<nav>
+			<ul id="submenu">
+				<li><a href="page-doc-history.html">version history</a></li>
+				<li><a href="page-doc-layout.html">key layout</a></li>
+				<li><a href="#" class="active">config file</a></li>
+				<li><a href="page-doc-blocktype.html">block settings</a></li>
+				<li><a href="page-doc-bugs.html">known bugs</a></li>
+			</ul>
+		</nav>
+		<p>
+			<div class="menulist">
+				<ul id="mlist">
+					<li><a href="#language">language</a></li>
+					<li><a href="#minecraft_path">minecraft_path</a></li>
+					<li><a href="#eihort_path">eihort_path</a></li>
+					<li><a href="#asset_search_paths">asset_search_paths</a></li>
+					<li><a href="#world_paths">world_paths</a></li>
+					<li><a href="#resource pack">resource pack</a></li>
+					<li><a href="#screenshot_path">screenshot_path</a></li>
+					<li><a href="#screen options">screen options</a></li>
+					<li><a href="#worldmenu info">worldmenu info</a></li>
+					<li><a href="#info display">info display</a></li>
+					<li><a href="#speed change">speed change</a></li>
+					<li><a href="#key bindings">key bindings</a></li>
+					<li><a href="#mouse sensitivity">mouse sensitivity</a></li>
+					<li><a href="#movement speed">movement speed</a></li>
+					<li><a href="#O-position">O-position</a></li>
+					<li><a href="#world startup">world startup</a></li>
+					<li><a href="#fps limit">fps limit</a></li>
+					<li><a href="#comfort settings">comfort settings</a></li>
+					<li><a href="#tooltip settings">tooltip settings</a></li>
+					<li><a href="#screenshots settings">screenshots settings</a></li>
+					<li><a href="#advanced settings">advanced settings</a></li>
+					<li><a href="#developer tools">developer tools</a></li>
+				</ul>
+			</div>
+			<div class="configlayout">
+				<div class="note">values in the eihort.config file</div>
+				<div class="headline"><a name="language"></a>language:</div>
+				<div class="keys">
+					<ul>
+						<li>=> The language eihort uses for text</li>
+						<li>eihort will automatically try to load the system language
+						<br>To load a specific language, remove the "--" before and insert the correct language shortcut. For example <div class="code"><code>language = "de";</code></div> for the german localisation</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="minecraft_path"></a>minecraft_path:</div>
+				<div class="keys">
+					<ul>
+						<li>=> The location of the minecraft folder on your hard disk drive</li>
+						<li><code>minecraft_path</code> = The location of the ".minecraft" folder on your hard disk drive</li>
+						<li>eihort will automatically try to load the latest available Minecraft version from the standard location
+						<br>To load Minecraft from a specific path, replace the existing text with <div class="code"><code>minecraft_path = "path/to/.minecraft/";</code></div></li>
+						<li>Use either a forward slash ("/") or a double backslash ("\\") between the folders</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="eihort_path"></a>eihort_path:</div>
+				<div class="keys">
+					<ul>
+						<li>=> The location of the eihort folder on your hard disk drive</li>
+						<li><code>eihort_path</code> = The location of the "eihort" folder on your hard disk drive</li>
+						<li>On some systems with access restricted folders eihort is not able to write in it's directory
+						<br>To load eihort from a specific path, replace the existing text with <div class="code"><code>eihort_path = "path/to/eihort/";</code></div></li>
+						<li>Use either a forward slash ("/") or a double backslash ("\\") between the folders</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="asset_search_paths"></a>asset_search_paths:</div>
+				<div class="keys">
+					<ul>
+						<li>=> The location of all of your asset/texture files. Earlier entries in the list have priority.</li>
+						<li><code>minecraft_path</code> = The location of the ".minecraft" folder on your hard disk drive</li>
+						<li>Adding paths to the list:</li>
+						<li><div class="code"><code>minecraft_path .. "path/to/file";</code></div></li>
+						<li><div class="code"><code>"full/path/to/the/texture/file";</code></div></li>
+					</ul>
+				</div>
+				<div class="headline"><a name="world_paths"></a>world_paths:</div>
+				<div class="keys">
+					<ul>
+						<li>=> The location of your saved world file(s) on your hard disk drive (usually */.minecraft/saves/*)</li>
+						<li><code>minecraft_path</code> = The location of the ".minecraft" folder on your hard disk drive</li>
+						<li>The format is either "{ "PATH", R, G, B };"</li>
+					</ul>
+					<div class="subkeys">
+						<ul>
+							<li>PATH = The world path on your hard disk drive</li>
+							<li>R = The ammount of red on the map select folder (value for each from 0.00 to 1.00)</li>
+							<li>G = The ammount of green on the map select folder (value for each from 0.00 to 1.00)</li>
+							<li>B = The ammount of blue on the map select folder (value for each from 0.00 to 1.00)</li>
+						</ul>
+					</div>
+					<ul>
+						<li>or "{ "PATH", "#HEX-COLOUR" };"</li>
+					</ul>
+					<div class="subkeys">
+						<ul>
+							<li>PATH = The world path on your hard disk drive</li>
+							<li>#HEX-COLOUR = the colour HEX value (eg #2666CC for the default eihort-blue)</li>
+						</ul>
+					</div>
+					<ul>
+						<li>For world folder use either a forward slash ("/") or a double backslash ("\\") between the folders</li>
+					</ul>	
+				</div>
+				<div class="headline"><a name="resource pack"></a>resource pack:</div>
+				<div class="keys">
+					<ul>
+						<li>=> The location of an optional resource pack, eihort will load on startup</li>
+						<li>To load a resource pack, replace the existing text with <div class="code"><code>minecraft_path .. "resourcepacks/my_favourite_resource_pack.zip";</code></div></li>
+						<li><code>minecraft_path</code> = The location of the ".minecraft" folder on your hard disk drive</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="screenshot_path"></a>screenshot_path:</div>
+				<div class="sidenote">Find <a href="#" onclick="check404()">more valid variables here</a>.</div>
+				<div class="keys">
+					<ul>
+						<li>=> The location where your screenshots will be saved in (usually */eihort/screenshots/*)</li>
+						<li><code>eihort_path</code> = The location of the "eihort.exe" file on your hard disk drive</li>
+						<li>Use "%O" to include the world's name</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="screen options"></a>screen options:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Options for eihorts start screen</li>
+						<li><code>fullscreen</code> = eihort will (<i>true</i>) or will not (<i>false</i>) start in full screen mode</li>
+						<li><code>screenwidth</code> = set the width of eihort startup widndow</li>
+						<li><code>screenheight</code> = set the height of eihort startup widndow</li>
+						<li><code>multisample</code> = anti-aliasing (default = 4)</li>
+						<li><code>anisotropy</code> = anisotropic filtering (default = 4)</li>
+						<li><code>fov</code> = the degrees of the Field Of View (default = 77)</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="worldmenu info"></a>worldmenu info:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Options for additional displayed info in the world menu</li>
+						<li><code>show_last_played_version</code> = eihort will (<i>true</i>) or will not (<i>false</i>) display the world' last Minecraft version</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="info display"></a>info display:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Options for additional displayed info</li>
+						<li><code>show_triangles</code> = eihort will (<i>true</i>) or will not (<i>false</i>) display the ammount of triangles in a scene</li>
+						<li><code>show_vram_use</code> = eihort will (<i>true</i>) or will not (<i>false</i>) display how much video card memory is used</li>
+						<li><code>show_region_file</code> = eihort will (<i>true</i>) or will not (<i>false</i>) display where your current position is saved in</li>
+						<li><code>show_global_chunk</code> = eihort will (<i>true</i>) or will not (<i>false</i>) display in which chuck you are in for the whole map</li>
+						<li><code>show_region_chunk</code> = eihort will (<i>true</i>) or will not (<i>false</i>) display in which chuck you are in for the region file</li>
+						<li><code>show_view_angles</code> = eihort will (<i>true</i>) or will not (<i>false</i>) display the pitch and azimuth view angles</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="speed change"></a>speed change:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Values the movement speed will be multiplied with</li>
+						<li><code>speedup_modifier</code> = the default movement speed will be accelerated by the inserted value (default = 8)</li>
+						<li><code>slowdown_modifier</code> = the default movement speed will be decelerated by the inserted value (default = <sup>1</sup>/<sub>8</sub>)</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="key bindings"></a>key bindings:</div>
+				<div class="keys">
+					<ul>
+						<li>=> The default keys and their actions</li>
+						<li>see <a href="page-doc-layout.html">key layout</a> for more information</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="mouse sensitivity"></a>mouse sensitivity:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust the mouse sensitivity in radians per pixel</li>
+						<li><code>mouse_sensitivity_scale</code> = the mouse sensitivity in percent for the x- and the y-axis (default = 100.0)</li>
+						<li><code>mouse_sensitivity_x</code> = the mouse sensitivity on the x-axis (default = 0.008)</li>
+						<li><code>mouse_sensitivity_y</code> = the mouse sensitivity on the y-axis, set to negative to invert (default = 0.01)</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="movement speed"></a>movement speed:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust the movement speed in blocks per second</li>
+						<li><code>movement_speed</code> = the speed on the map page in blocks per second (default = 50)</li>
+						<li><code>view_distance_speed</code> = the speed of the view distance change in blocks per second (default = 50)</li>
+						<li><code>time_speed</code> = the speed of the time change in hours per second (default = 3)</li>
+						<li><code>spline_speed</code> = the speed of spline points per second (default = 0.4)</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="O-position"></a>O-position:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust the place you get to when "O" is pressed</li>
+						<li><code>origin_x</code> = X coordinate (default = 0)</li>
+						<li><code>origin_y</code> = Y coordinate (default = 100)</li>
+						<li><code>origin_z</code> = Z coordinate (default = -20)</li>
+						<li><code>origin_pitch</code> = vertical view direction in radians, <sup>&#960;</sup>/<sub>2</sub> is up, - <sup>&#960;</sup>/<sub>2</sub> is down (default = -0.7)</li>
+						<li><code>origin_azimuth</code> = horizintal view direction (default = 0)</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="world startup"></a>world startup:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust eihort's world start up setting</li>
+						<li><code>use_world_time</code> = eihort will (<i>true</i>) or will not (<i>false</i>) use the Minecraft world time as startup time</li>
+						<li><code>start_time</code> = time on map startup, -1 and 1 are midnight, 0 is noon (default = 0)</li>
+						<li><code>start_view_distance</code> = view distance on map startup (default = 500)</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="fps limit"></a>fps limit:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust the maximum frames per second</li>
+						<li><code>fps_limit</code> = limit of the drwawn frames per second (default = 60)</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="comfort settings"></a>comfort settings:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust if eihort should ask before performing a task using the toggle key</li>
+						<li><code>confirmToggledButtonUse</code> = eihort will (<i>true</i>) or will not (<i>false</i>) ask before performing a task in general</li>
+						<li><code>confirmToggledButtonUseForMovedPlayer</code> = eihort will (<i>true</i>) or will not (<i>false</i>) ask before moving the player</li>
+						<li><code>confirmToggledButtonUseForMovedSpawn</code> = eihort will (<i>true</i>) or will not (<i>false</i>) ask before moving the spawn</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="tooltip settings"></a>tooltip settings:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust if eihort should display button tooltips</li>
+						<li><code>showShortcutButtonTooltip</code> = eihort will (<i>true</i>) or will not (<i>false</i>) show tooltips in in general</li>
+						<li><code>showShortcutButtonTooltipForEOMenu</code> = eihort will (<i>true</i>) or will not (<i>false</i>) show button tooltips in the extra options menu</li>
+						<li><code>showShortcutButtonTooltipForDevButtons</code> = eihort will (<i>true</i>) or will not (<i>false</i>) show button tooltips for developer buttons</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="screenshots settings"></a>screenshots settings:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust screenshot settings</li>
+						<li><code>takeScreenshotAsIs</code> = eihort will (<i>true</i>) or will not (<i>false</i>) screenshot what it renders (including GUI etc.)</li>
+					</ul>
+				</div><div class="headline"><a name="advanced settings"></a>advanced settings:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to adjust advanced settings</li>
+						<li><code>qtree_leaf_size</code> = the worlds quadtree leaf/loading square size, range from 2 - 12 (default = 7)</li>
+					</ul>
+					<div class="subkeys">
+						<ul>
+							<li>< 5 = small square, fast rendering</li>
+							<li>  7 = average square, average rendering</li>
+							<li>> 9 = large square, slow rendering</li>
+						</ul>
+					</div>
+					<ul>
+						<li><code>max_gpu_mem</code> = maximum gpu memory usage in MB, 0 = auto detect (default = 0)</li>
+						<li><code>disable_cpu_saver</code> = eihort will (<i>true</i>) or will not (<i>false</i>) continually redraw frames even nothing changes</li>
+						<li><code>worker_threads</code> = number of worker threads to use to load the world, 0 = auto detect (default = 0)</li>
+						<li><code>ignore_gl_errors</code> = eihort will (<i>true</i>) or will not (<i>false</i>) ignore OpenGL errors</li>
+						<li><code>silent_fail_texture_load</code> = eihort will (<i>true</i>) or will not (<i>false</i>) complain about missing textures</li>
+					</ul>
+				</div>
+				<div class="headline"><a name="developer tools"></a>developer tools:</div>
+				<div class="keys">
+					<ul>
+						<li>=> Option to control developer tools</li>
+						<li><code>deveoper_tools</code> = eihort can (<i>true</i>) or can not (<i>false</i>) use any developer tools</li>
+						<li><code>deveoper_tools_path</code> = the folder in which eihort will write all created files</li>
+						<li><code>print_loaded_assets</code> = eihort will (<i>true</i>) or will not (<i>false</i>) list all loaded <i>assests</i>/files</li>
+						<li><code>print_found_versions</code> = eihort will (<i>true</i>) or will not (<i>false</i>) list all known Minecraft versions</li>
+						<li><code>print_cache_hits</code> = eihort will (<i>true</i>) or will not (<i>false</i>) list all VRAM cache hits</li>
+						<li><code>print_cache_hits_detail</code> = eihort will (<i>true</i>) or will not (<i>false</i>) list details for VRAM cache hits</li>
+						<li><code>show_developer_buttons</code> = eihort will (<i>true</i>) or will not (<i>false</i>) show developer buttons</li>
+						<li><code>enable_developer_keys</code> = eihort will (<i>true</i>) or will not (<i>false</i>) enable developer keys</li>
+					</ul>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function check404(){				
+					if(window.success){
+						window.location = 'http://www.cplusplus.com/reference/ctime/strftime/'; // goto online page
+					}else{
+						window.location = 'page-offline-svariables.html'; // goto offline page
+					}
+				}
+			</script>
+		</p>
+	</div>	
+</body>
+</html>
