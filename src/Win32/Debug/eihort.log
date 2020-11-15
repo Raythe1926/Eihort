@@ -34,14 +34,59 @@ D:\EihortDev\src\src\uidrawcontext.cpp(144,13): warning C4244: 'initializing': c
 cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   triangle.c
 eihortshader.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  zlib.lib(inflate.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+  lua.lib(lapi.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 eihortshader.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
      Creating library deploy32\eihort_d.lib and object deploy32\eihort_d.exp
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-nbt.obj : error LNK2001: unresolved external symbol _gzread
-nbt.obj : error LNK2001: unresolved external symbol _gzwrite
-nbt.obj : error LNK2001: unresolved external symbol _gzclose
-nbt.obj : error LNK2001: unresolved external symbol _gzopen
-deploy32\eihort_d.exe : fatal error LNK1120: 4 unresolved externals
+  Generating code
+  Finished generating code
+lua.lib(lapi.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lapi.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lauxlib.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lauxlib.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(linit.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(linit.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(ltable.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(ltable.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lvm.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lvm.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(ldo.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(ldo.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lgc.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lgc.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(ldebug.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(ldebug.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lobject.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lobject.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lfunc.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lfunc.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lzio.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lzio.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lstring.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lstring.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lstate.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lstate.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(ldump.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(ldump.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(ltm.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(ltm.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(ltablib.obj) : warning LNK4099: PDB '' was not found with 'lua.lib(ltablib.obj)' or at ''; linking object as if no debug info
+lua.lib(lbaselib.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lbaselib.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(loadlib.obj) : warning LNK4099: PDB '' was not found with 'lua.lib(loadlib.obj)' or at ''; linking object as if no debug info
+lua.lib(loslib.obj) : warning LNK4099: PDB '' was not found with 'lua.lib(loslib.obj)' or at ''; linking object as if no debug info
+lua.lib(lstrlib.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lstrlib.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lmathlib.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lmathlib.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(liolib.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(liolib.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(ldblib.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(ldblib.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lcorolib.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lcorolib.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lbitlib.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lbitlib.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lmem.obj) : warning LNK4099: PDB '' was not found with 'lua.lib(lmem.obj)' or at ''; linking object as if no debug info
+lua.lib(lundump.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lundump.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lparser.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lparser.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lopcodes.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lopcodes.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lctype.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lctype.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(llex.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(llex.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+lua.lib(lcode.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(lcode.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+libpng16.lib(pngwrite.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngwrite.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngerror.obj) : warning LNK4099: PDB '' was not found with 'libpng16.lib(pngerror.obj)' or at ''; linking object as if no debug info
+libpng16.lib(png.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(png.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngset.obj) : warning LNK4099: PDB '' was not found with 'libpng16.lib(pngset.obj)' or at ''; linking object as if no debug info
+libpng16.lib(pngwutil.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngwutil.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngwio.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngwio.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngtrans.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngtrans.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngwtran.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngwtran.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngmem.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngmem.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngget.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngget.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngread.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngread.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngrio.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngrio.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngrutil.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngrutil.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+libpng16.lib(pngrtran.obj) : warning LNK4099: PDB 'libpng.pdb' was not found with 'libpng16.lib(pngrtran.obj)' or at 'D:\EihortDev\src\deploy32\libpng.pdb'; linking object as if no debug info
+lua.lib(luac.obj) : warning LNK4099: PDB 'lua.pdb' was not found with 'lua.lib(luac.obj)' or at 'D:\EihortDev\src\deploy32\lua.pdb'; linking object as if no debug info
+  eihort.vcxproj -> D:\EihortDev\src\deploy32\eihort_d.exe
