@@ -30,5 +30,8 @@
 *.out
 *.app
 
+# Debug
+*.pdb
+
 # Visual Studio cache/options directory
 .vs/

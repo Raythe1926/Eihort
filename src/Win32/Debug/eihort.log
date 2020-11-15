@@ -1,13 +1,13 @@
-﻿cl : Command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   worldqtree.cpp
   worldmeshbuilder.cpp
   worker.cpp
   unzip.cpp
   uidrawcontext.cpp
-d:\eihortdev\src\src\uidrawcontext.cpp(141): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
-d:\eihortdev\src\src\uidrawcontext.cpp(142): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
-d:\eihortdev\src\src\uidrawcontext.cpp(143): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
-d:\eihortdev\src\src\uidrawcontext.cpp(144): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+D:\EihortDev\src\src\uidrawcontext.cpp(141,13): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+D:\EihortDev\src\src\uidrawcontext.cpp(142,13): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+D:\EihortDev\src\src\uidrawcontext.cpp(143,13): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+D:\EihortDev\src\src\uidrawcontext.cpp(144,13): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
   sky.cpp
   nbt.cpp
   worldmesh.cpp
@@ -31,11 +31,17 @@ d:\eihortdev\src\src\uidrawcontext.cpp(144): warning C4244: 'initializing': conv
   geomadapter.cpp
   eihortshader.cpp
   Generating Code...
-cl : Command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   triangle.c
 eihortshader.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  lua.lib(lapi.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+  zlib.lib(inflate.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 eihortshader.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-LINK : fatal error C1900: Il mismatch between 'P1' version '20190715' and 'P2' version '20180423'
-LINK : fatal error LNK1257: code generation failed
+     Creating library deploy32\eihort_d.lib and object deploy32\eihort_d.exp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+nbt.obj : error LNK2001: unresolved external symbol _gzread
+nbt.obj : error LNK2001: unresolved external symbol _gzwrite
+nbt.obj : error LNK2001: unresolved external symbol _gzclose
+nbt.obj : error LNK2001: unresolved external symbol _gzopen
+deploy32\eihort_d.exe : fatal error LNK1120: 4 unresolved externals
